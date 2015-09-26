@@ -13,9 +13,20 @@ public class InputManager : Singleton<InputManager> {
 		if(Input.GetMouseButtonDown(0) && OnTapDownEvent != null){ OnTapDownEvent (); }
 	}
 
+	//-------------------------------------
+	//Title
+	//-------------------------------------
 	public void OnGetLoginButtonDown(){
 		AppManager.I.Login();
 	}
+
+	//-------------------------------------
+	//MainMenu
+	//-------------------------------------
+	public void OnGetRankingButtonDown(){}
+	public void OnGetTacticsButtonDown(){}
+	public void OnGetProfileButtonDown(){}
+	public void OnGetBattleButtonDown(){}
 
 	/*use this where want tap action
  	void  OnEnable(){
