@@ -8,13 +8,13 @@ public class InputManager : Singleton<InputManager> {
 	public event System.Action OnTapUpEvent;
 	
 	void Update(){
-		if (Input.GetMouseButton(0) && OnTapEvent != null) { OnTapEvent(); }
+		if(Input.GetMouseButton(0) && OnTapEvent != null) { OnTapEvent(); }
 		if(Input.GetMouseButtonUp(0) && OnTapUpEvent != null){ OnTapUpEvent (); }
 		if(Input.GetMouseButtonDown(0) && OnTapDownEvent != null){ OnTapDownEvent (); }
 	}
 
 	public void OnGetLoginButtonDown(){
-
+		AppManager.I.Login();
 	}
 
 	/*use this where want tap action

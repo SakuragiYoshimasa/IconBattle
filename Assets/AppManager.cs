@@ -9,6 +9,12 @@ public class AppManager : Singleton<AppManager> {
 		appStatus = AppStatus.Title;
 	}
 
+	public void Login(){
+		//if(logins){}
+		appStatus = AppStatus.Ranking;
+		GuiManager.I.Login();
+	}
+
 
 }
 
