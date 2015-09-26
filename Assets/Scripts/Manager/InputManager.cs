@@ -13,6 +13,10 @@ public class InputManager : Singleton<InputManager> {
 		if(Input.GetMouseButtonDown(0) && OnTapDownEvent != null){ OnTapDownEvent (); }
 	}
 
+	public void OnGetLoginButtonDown(){
+
+	}
+
 	/*use this where want tap action
  	void  OnEnable(){
 		InputManager.I.OnTapEvent += OnTap;

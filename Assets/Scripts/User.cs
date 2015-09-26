@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class User : MonoBehaviour {
 
@@ -9,15 +10,12 @@ public class User : MonoBehaviour {
 	public float numOfBlockPixel;
 
 	public readonly int blockNum = 32;
-
-	// Use this for initialization
+	public List<GameObject> tiles;
+	
 	void Start () {
-
+		tiles = new List<GameObject>(1024);
 		int width = icon.width;
-		//int height = icon.height;
-
-		//Debug.Log(width.ToString());
-
+	
 		numOfBlockPixel =  (float)width / blockNum;
 		int num = 0;
 		for(int blockW = 0; blockW < blockNum; blockW++){
@@ -29,18 +27,12 @@ public class User : MonoBehaviour {
 						colors[(w - blockW *  (int)numOfBlockPixel) * (int)numOfBlockPixel + (h - blockH *  (int)numOfBlockPixel)] = icon.GetPixel(w,h);
 					}
 				}
-				tileInstance = GameObject.Instantiate(tile,new Vector3(0.3f * blockW,0.3f * blockH,0),Quaternion.identity) as GameObject;
+				tiles.Add( tileInstance = GameObject.Instantiate(tile,new Vector3(0.3f * blockW,0.3f * blockH,0),Quaternion.identity) as GameObject);
 				tileInstance.transform.localScale = new Vector3(2f,2f,1f);
 				tileInstance.gameObject.GetComponent<SpriteRenderer>().color = SmoothingColor(colors);
 				num ++;
 			}
 		}
-		Debug.Log(num.ToString());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	Color32 SmoothingColor(Color32[] colors){
