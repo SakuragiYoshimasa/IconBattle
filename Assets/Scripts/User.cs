@@ -11,6 +11,9 @@ public class User : MonoBehaviour {
 
 	public readonly int blockNum = 32;
 	public List<GameObject> tiles;
+
+	public float xOffset;
+	public float yOffset;
 	
 	void Start () {
 		tiles = new List<GameObject>(1024);
@@ -27,7 +30,8 @@ public class User : MonoBehaviour {
 						colors[(w - blockW *  (int)numOfBlockPixel) * (int)numOfBlockPixel + (h - blockH *  (int)numOfBlockPixel)] = icon.GetPixel(w,h);
 					}
 				}
-				tiles.Add( tileInstance = GameObject.Instantiate(tile,new Vector3(0.3f * blockW,0.3f * blockH,0),Quaternion.identity) as GameObject);
+				tiles.Add( tileInstance = GameObject.Instantiate(tile,new Vector3(0.3f * blockW + xOffset,0.3f * blockH + yOffset,0),Quaternion.identity) as GameObject);
+				//tileInstance = GameObject.Instantiate(tile,new Vector3(0.3f * blockW,0.3f * blockH,0),Quaternion.identity) as GameObject;
 				tileInstance.transform.localScale = new Vector3(2f,2f,1f);
 				tileInstance.gameObject.GetComponent<SpriteRenderer>().color = SmoothingColor(colors);
 				num ++;

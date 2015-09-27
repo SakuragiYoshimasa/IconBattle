@@ -1217,6 +1217,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titlePanel: {fileID: 1838056261}
   MenuPanel: {fileID: 1101079536}
+  rankingPanel: {fileID: 0}
+  tacticsPanel: {fileID: 0}
+  profilePanel: {fileID: 0}
+  battlePanel: {fileID: 0}
 --- !u!4 &1662483095
 Transform:
   m_ObjectHideFlags: 0
